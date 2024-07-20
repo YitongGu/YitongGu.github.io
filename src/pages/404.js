@@ -13,12 +13,13 @@ const StyledMainContainer = styled.main`
   flex-direction: column;
 `;
 const StyledTitle = styled.h1`
-  color: var(--green);
+  color: var(--pink);
   font-family: var(--font-mono);
   font-size: clamp(100px, 25vw, 200px);
   line-height: 1;
 `;
 const StyledSubtitle = styled.h2`
+  color: var(--lightpurple);
   font-size: clamp(30px, 5vw, 50px);
   font-weight: 400;
 `;

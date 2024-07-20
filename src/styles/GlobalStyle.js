@@ -21,13 +21,13 @@ const GlobalStyle = createGlobalStyle`
   }
 
   ::selection {
-    background-color: var(--lightest-navy);
+    background-color: var(--lightpurple);
     color: var(--lightest-slate);
   }
 
   /* Provide basic, default focus styles.*/
   :focus {
-    outline: 2px dashed var(--green);
+    outline: 2px dashed var(--pink);
     outline-offset: 3px;
   }
 
@@ -46,7 +46,7 @@ const GlobalStyle = createGlobalStyle`
     focus.
   */
   :focus-visible {
-    outline: 2px dashed var(--green);
+    outline: 2px dashed var(--pink);
     outline-offset: 3px;
   }
 
@@ -171,6 +171,7 @@ const GlobalStyle = createGlobalStyle`
 
   .big-heading {
     margin: 0;
+    color: var(--lightpurple);
     font-size: clamp(40px, 8vw, 80px);
   }
 
@@ -181,6 +182,7 @@ const GlobalStyle = createGlobalStyle`
 
   .numbered-heading {
     display: flex;
+    color: var(--pink);
     align-items: center;
     position: relative;
     margin: 10px 0 40px;
@@ -194,7 +196,7 @@ const GlobalStyle = createGlobalStyle`
       counter-increment: section;
       content: '0' counter(section) '.';
       margin-right: 10px;
-      color: var(--green);
+      color: var(--pink);
       font-family: var(--font-mono);
       font-size: clamp(var(--fz-md), 3vw, var(--fz-xl));
       font-weight: 400;
@@ -325,14 +327,14 @@ const GlobalStyle = createGlobalStyle`
           content: '▹';
           position: absolute;
           left: 0;
-          color: var(--green);
+          color: var(--pink);
         }
       }
     }
   }
 
   blockquote {
-    border-left-color: var(--green);
+    border-left-color: var(--pink);
     border-left-style: solid;
     border-left-width: 1px;
     margin-left: 0px;
@@ -372,7 +374,7 @@ const GlobalStyle = createGlobalStyle`
 
     &:hover,
     &:focus {
-      background-color: var(--green);
+      background-color: var(--pink);
       color: var(--navy);
       top: 0;
       left: 0;
@@ -386,18 +388,18 @@ const GlobalStyle = createGlobalStyle`
   }
 
   #logo {
-    color: var(--green);
+    color: var(--pink);
   }
 
   .overline {
-    color: var(--green);
+    color: var(--pink);
     font-family: var(--font-mono);
     font-size: var(--fz-md);
     font-weight: 400;
   }
 
   .subtitle {
-    color: var(--green);
+    color: var(--pink);
     margin: 0 0 20px 0;
     font-size: var(--fz-md);
     font-family: var(--font-mono);

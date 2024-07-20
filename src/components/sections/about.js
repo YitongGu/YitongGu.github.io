@@ -39,7 +39,7 @@ const StyledText = styled.div`
         content: '▹';
         position: absolute;
         left: 0;
-        color: var(--green);
+        color: var(--pink);
         font-size: var(--fz-sm);
         line-height: 12px;
       }
@@ -105,7 +105,7 @@ const StyledPic = styled.div`
     }
 
     &:after {
-      border: 2px solid var(--green);
+      border: 2px solid var(--pink);
       top: 14px;
       left: 14px;
       z-index: -1;

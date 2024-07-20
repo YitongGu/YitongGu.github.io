@@ -1,10 +1,10 @@
 module.exports = {
-  email: 'brittany.chiang@gmail.com',
+  email: 'yitongg3@gmail.com',
 
   socialMedia: [
     {
       name: 'GitHub',
-      url: 'https://github.com/bchiang7',
+      url: 'https://github.com/YitongGu',
     },
     {
       name: 'Instagram',
@@ -16,11 +16,7 @@ module.exports = {
     },
     {
       name: 'Linkedin',
-      url: 'https://www.linkedin.com/in/bchiang7',
-    },
-    {
-      name: 'Codepen',
-      url: 'https://codepen.io/bchiang7',
+      url: 'https://www.linkedin.com/in/yitong-gu-172b19313/',
     },
   ],
 
@@ -42,11 +38,13 @@ module.exports = {
       url: '/#contact',
     },
   ],
-
+  
   colors: {
-    green: '#64ffda',
-    navy: '#0a192f',
-    darkNavy: '#020c1b',
+    green: '#ffffff',
+    pink: '#ffffff',
+    lightpurple: '#ffffff',
+    navy: '#ffffff',
+    dark: '#ffffff',
   },
 
   srConfig: (delay = 200, viewFactor = 0.25) => ({

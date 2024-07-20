@@ -13,6 +13,7 @@ const StyledProjectsSection = styled.section`
   align-items: center;
 
   h2 {
+    color: var(--lightpurple);
     font-size: clamp(24px, 5vw, var(--fz-heading));
   }
 
@@ -81,7 +82,7 @@ const StyledProject = styled.li`
     margin-bottom: 35px;
 
     .folder {
-      color: var(--green);
+      color: var(--pink);
       svg {
         width: 40px;
         height: 40px;
@@ -116,7 +117,7 @@ const StyledProject = styled.li`
 
   .project-title {
     margin: 0 0 10px;
-    color: var(--lightest-slate);
+    color: var(--lightpurple);
     font-size: var(--fz-xxl);
 
     a {

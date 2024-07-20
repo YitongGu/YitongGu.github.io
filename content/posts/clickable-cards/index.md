@@ -33,7 +33,7 @@ Card layout where the card itself isn't an anchor link, but the whole card is cl
 
       &:hover,
       &:focus {
-        color: blue;
+        color: lightpurple;
       }
 
       &:before {
