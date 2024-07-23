@@ -100,8 +100,10 @@ const StyledNav = styled.nav`
       &:hover,
       &:focus {
         outline: 0;
+        color: var(--lightpurple);
         transform: translate(-4px, -4px);
         .hex-container {
+          color: var(--lightpurple);
           transform: translate(4px, 3px);
         }
       }
@@ -135,7 +137,7 @@ const StyledLinks = styled.div`
         &:before {
           content: '0' counter(item) '.';
           margin-right: 5px;
-          color: var(--pink);
+          color: var(--purple);
           font-size: var(--fz-xxs);
           text-align: right;
         }
