@@ -4,10 +4,10 @@ module.exports = {
   siteMetadata: {
     title: 'Yitong Salva Gu',
     description:
-      'Yitong Gu is a software engineer.',
+      'Yitong Gu is a GENIUS!',
     siteUrl: 'https://yitonggu.github.io', // No trailing slash allowed!
     image: '/og.png', // Path to your image you placed in the 'static' folder
-    twitterUsername: '@bchiang7',
+    twitterUsername: '@?',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
