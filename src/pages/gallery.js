@@ -71,6 +71,7 @@ const StyledFilterContainer = styled.div`
   display: flex;
   justify-content: center;
   margin: ${props => props.sub ? '8px 0 30px' : '50px 0 30px'};
+6ba7f80a (almost done)
   gap: 20px;
 
   @media (max-width: 768px) {
@@ -90,6 +91,7 @@ const StyledFilterButton = styled.button`
   cursor: pointer;
   transition: var(--transition);
   margin-right: 0;
+(almost done)
 
   &:hover {
     background: rgba(96, 250, 248, 0.1);
@@ -105,6 +107,7 @@ const StyledFilterButton = styled.button`
     padding: 6px 12px;
     margin-left: 8px;
   }
+
 `;
 
 const StyledGalleryGrid = styled.div`
@@ -238,8 +241,6 @@ const GalleryPage = ({ location }) => {
           <StyledTitle>Gallery</StyledTitle>
           <StyledSubtitle>
             <h>A collection of my paintings and writings, exploring creativity across different media and themes.</h>
-            
-            <h>A collection of my paintings and writings, exploring creativity across different mediums and themes.</h>
           </StyledSubtitle>
           {filter === null && (
             <StyledFilterContainer>
