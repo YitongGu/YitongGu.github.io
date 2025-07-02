@@ -1,5 +1,5 @@
 <div align="center">
-  <img alt="Logo" src="https://raw.githubusercontent.com/bchiang7/v4/main/src/images/logo.png" width="100" />
+  <img alt="Logo" src="src/images/phi.svg" width="100" />
 </div>
 <h1 align="center">
   YitongGu.github.io
@@ -8,7 +8,7 @@
 
 ## 🚨 Forking this repo (please read!)
 
-Yes, you can fork this repo. Credit to [brittanychiang.com](https://brittanychiang.com). Thanks!
+Yes, you can fork this repo. This repo is also a fork from https://v4.brittanychiang.com/.
 
 ## 🛠 Installation & Set Up
 

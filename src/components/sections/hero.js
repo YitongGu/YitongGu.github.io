@@ -59,30 +59,26 @@ const Hero = () => {
     return () => clearTimeout(timeout);
   }, []);
 
-  const one = <h1>Hi, my name is</h1>;
-  const two = <h2 className="big-heading">Yitong Gu.</h2>;
-  const three = <h3 className="big-heading">PERSONAL WEBSITE UNDER CONSTRUCTION!!!!!!!!!!</h3>;
+  const one = <h1>Hi, here is</h1>;
+  const two = <h2 className="big-heading">Yitong Gu</h2>;
+  const three = <h3 className="big-heading">Welcome to my little world</h3>;
   const four = (
     <>
       <p>
-        Relax Darling, almost nothing on the website is about me :D
-        I will finish it by who know when :D
-        Keep expecting dude! I'll be there soon!
-        {' '}
-        <a href="https://upstatement.com/" target="_blank" rel="noreferrer">
-          Upstatement
-        </a>
-        .
+        I love to explore the world, both external and internal. Welcome, my friend,
+        whether from the internet or from the real world, interested in my projects or gallery,
+        or just wandering around, I'm glad to have you here.
+      </p>
+      <p>
+        Scroll down to the projects, or click the button below to visit my gallery.
       </p>
     </>
   );
   const five = (
     <a
       className="email-link"
-      href="https://www.newline.co/courses/build-a-spotify-connected-app"
-      target="_blank"
-      rel="noreferrer">
-      Check out my course!
+      href="/gallery">
+      Explore my Galary
     </a>
   );
 
