@@ -170,9 +170,16 @@ const galleryData = [
   {
     id: 1,
     title: '夏令时珍珠',
-    description: '谨以此文献给一位曾经的友人。愿我们都能坦然拥抱真实的自己。',
+    description: '谨以此文献给一位曾经的友人，愿我们都能坦然拥抱真实的自己',
     type: '阿弗勒斯的倒影',
     slug: '/writings/summertime-pearl'
+  },
+  {
+    id: 2,
+    title: '夜的纹理',
+    description: '献给Cyberpunk2077的Judy，来自恶魔结局的Valerie',
+    type: '深林的回响',
+    slug: '/writings/Texture-of-the-night'
   },
 
 ];
@@ -219,6 +226,12 @@ const GalleryPage = ({ location }) => {
               onClick={() => setFilter('阿弗勒斯的倒影')}
             >
               阿弗勒斯的倒影
+            </StyledFilterButton>
+            <StyledFilterButton 
+              className={filter === '深林的回响' ? 'active' : ''}
+              onClick={() => setFilter('深林的回响')}
+            >
+              深林的回响
             </StyledFilterButton>
           </StyledFilterContainer>
 
