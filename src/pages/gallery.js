@@ -70,7 +70,7 @@ const StyledSubtitle = styled.p`
 const StyledFilterContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin: 50px 0 30px;
+  margin: ${props => props.sub ? '8px 0 30px' : '50px 0 30px'};
   gap: 20px;
 
   @media (max-width: 768px) {
@@ -89,6 +89,7 @@ const StyledFilterButton = styled.button`
   font-family: var(--font-mono);
   cursor: pointer;
   transition: var(--transition);
+  margin-right: 0;
 
   &:hover {
     background: rgba(96, 250, 248, 0.1);
@@ -97,6 +98,12 @@ const StyledFilterButton = styled.button`
   &.active {
     background: var(--green);
     color: var(--navy);
+  }
+
+  &.sub {
+    font-size: var(--fz-xs);
+    padding: 6px 12px;
+    margin-left: 8px;
   }
 `;
 
@@ -165,6 +172,14 @@ const StyledEmptyState = styled.div`
   font-family: var(--font-mono);
 `;
 
+const StyledWritingDescription = styled.div`
+  text-align: center;
+  color: var(--light-slate);
+  font-size: var(--fz-lg);
+  margin: 8px 0 10px 0;
+  font-family: var(--font-mono);
+`;
+
 // Sample gallery data - you can replace this with your actual content
 const galleryData = [
   {
@@ -172,17 +187,41 @@ const galleryData = [
     title: '夏令时珍珠',
     description: '谨以此文献给一位曾经的友人。愿我们都能坦然拥抱真实的自己。',
     type: '阿弗勒斯的倒影',
+    category: 'writings',
     slug: '/writings/summertime-pearl'
   },
-
+  {
+    id: 2,
+    title: '夜的纹理',
+    description: '献给夜之城Judy，来自空间站舱门内的Valerie',
+    type: '林深之处的回响',
+    category: 'writings',
+    slug: '/writings/textured-nights'
+  },
 ];
 
 const GalleryPage = ({ location }) => {
-  const [filter, setFilter] = useState('all');
+  const [filter, setFilter] = useState(null);
+  const [showWritingSubcategories, setShowWritingSubcategories] = useState(false);
   
-  const filteredItems = filter === 'all' 
-    ? galleryData 
-    : galleryData.filter(item => item.type === filter);
+  const filteredItems = filter === 'writings'
+    ? galleryData.filter(item => item.category === 'writings')
+    : filter
+    ? galleryData.filter(item => item.type === filter)
+    : [];
+
+  const handleWritingsClick = () => {
+    if (filter === 'writings') {
+      setShowWritingSubcategories(!showWritingSubcategories);
+    } else {
+      setFilter('writings');
+      setShowWritingSubcategories(true);
+    }
+  };
+
+  const handleSubcategoryClick = (subcategory) => {
+    setFilter(subcategory);
+  };
 
   const handleItemClick = (item) => {
     if (item.file) {
@@ -198,47 +237,96 @@ const GalleryPage = ({ location }) => {
         <StyledGallerySection>
           <StyledTitle>Gallery</StyledTitle>
           <StyledSubtitle>
-            A collection of my paintings and writings, exploring creativity across different mediums and themes.
+            <h>A collection of my paintings and writings, exploring creativity across different media and themes.</h>
+            
+            <h>A collection of my paintings and writings, exploring creativity across different mediums and themes.</h>
           </StyledSubtitle>
-          
-          <StyledFilterContainer>
-            <StyledFilterButton 
-              className={filter === 'all' ? 'active' : ''}
-              onClick={() => setFilter('all')}
-            >
-              All
-            </StyledFilterButton>
-            <StyledFilterButton 
-              className={filter === 'painting' ? 'active' : ''}
-              onClick={() => setFilter('painting')}
-            >
-              Paintings
-            </StyledFilterButton>
-            <StyledFilterButton 
-              className={filter === '阿弗勒斯的倒影' ? 'active' : ''}
-              onClick={() => setFilter('阿弗勒斯的倒影')}
-            >
-              阿弗勒斯的倒影
-            </StyledFilterButton>
-          </StyledFilterContainer>
+          {filter === null && (
+            <StyledFilterContainer>
+              <StyledFilterButton 
+                className={filter === 'painting' ? 'active' : ''}
+                onClick={() => {
+                  setFilter('painting');
+                  setShowWritingSubcategories(false);
+                }}
+              >
+                Paintings
+              </StyledFilterButton>
+              <StyledFilterButton 
+                className={filter === 'writings' || filter === '阿弗勒斯的倒影' || filter === '林深之处的回响' ? 'active' : ''}
+                onClick={handleWritingsClick}
+              >
+                Writings
+              </StyledFilterButton>
+            </StyledFilterContainer>
+          )}
 
-          <StyledGalleryGrid>
-            {filteredItems.map(item => (
-              <StyledGalleryItem key={item.id} onClick={() => handleItemClick(item)}>
-                {item.type === 'painting' && item.image && (
-                  <StyledItemImage src={item.image} alt={item.title} />
-                )}
-                <StyledItemTitle>{item.title}</StyledItemTitle>
-                <StyledItemDescription>{item.description}</StyledItemDescription>
-                <StyledItemType>{item.type}</StyledItemType>
-              </StyledGalleryItem>
-            ))}
-          </StyledGalleryGrid>
+          {filter !== null && (
+            <>
+              <StyledFilterContainer>
+                <StyledFilterButton 
+                  className={filter === 'painting' ? 'active' : ''}
+                  onClick={() => {
+                    setFilter('painting');
+                    setShowWritingSubcategories(false);
+                  }}
+                >
+                  Paintings
+                </StyledFilterButton>
+                <StyledFilterButton 
+                  className={filter === 'writings' || filter === '阿弗勒斯的倒影' || filter === '林深之处的回响' ? 'active' : ''}
+                  onClick={handleWritingsClick}
+                >
+                  Writings
+                </StyledFilterButton>
+              </StyledFilterContainer>
 
-          {filteredItems.length === 0 && (
-            <StyledEmptyState>
-              No items found for the selected filter.
-            </StyledEmptyState>
+              {(filter === 'writings' || filter === '阿弗勒斯的倒影' || filter === '林深之处的回响') && (
+                <>
+                  <StyledWritingDescription>
+                    感谢阅读我的文字，我将他们分为了两类。<br />
+                    <b>阿弗勒斯的倒影</b>：你如何凝望世界，你就如何触碰自己。<br />
+                    <b>林深之处的回响</b>：你如何凝望自己，你就如何触碰世界。
+                  </StyledWritingDescription>
+                  <StyledFilterContainer sub>
+                    <StyledFilterButton
+                      className={`sub${filter === '阿弗勒斯的倒影' ? ' active' : ''}`}
+                      onClick={() => handleSubcategoryClick('阿弗勒斯的倒影')}
+                    >
+                      阿弗勒斯的倒影
+                    </StyledFilterButton>
+                    <StyledFilterButton
+                      className={`sub${filter === '林深之处的回响' ? ' active' : ''}`}
+                      onClick={() => handleSubcategoryClick('林深之处的回响')}
+                    >
+                      林深之处的回响
+                    </StyledFilterButton>
+                  </StyledFilterContainer>
+                </>
+              )}
+
+              {(filter === '阿弗勒斯的倒影' || filter === '林深之处的回响' || filter === 'painting') && (
+                <>
+                  <StyledGalleryGrid>
+                    {filteredItems.map(item => (
+                      <StyledGalleryItem key={item.id} onClick={() => handleItemClick(item)}>
+                        {item.type === 'painting' && item.image && (
+                          <StyledItemImage src={item.image} alt={item.title} />
+                        )}
+                        <StyledItemTitle>{item.title}</StyledItemTitle>
+                        <StyledItemDescription>{item.description}</StyledItemDescription>
+                        <StyledItemType>{item.type}</StyledItemType>
+                      </StyledGalleryItem>
+                    ))}
+                  </StyledGalleryGrid>
+                  {filteredItems.length === 0 && (
+                    <StyledEmptyState>
+                      No items found for the selected filter.
+                    </StyledEmptyState>
+                  )}
+                </>
+              )}
+            </>
           )}
         </StyledGallerySection>
       </StyledMainContainer>
