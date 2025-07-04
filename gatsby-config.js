@@ -2,10 +2,10 @@ const config = require('./src/config');
 
 module.exports = {
   siteMetadata: {
-    title: 'Yitong Salva Gu',
+    title: 'AvlasRefl',
     description:
-      'Yitong Gu is a GENIUS!',
-    siteUrl: 'https://yitonggu.github.io', // No trailing slash allowed!
+      'AvlasRefl is a GENIUS!',
+    siteUrl: 'https://avlasrefl.github.io', // No trailing slash allowed!
     image: '/og.png', // Path to your image you placed in the 'static' folder
     twitterUsername: '@?',
   },
@@ -20,7 +20,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Yitong Gu',
+        name: 'AvlasRefl',
         short_name: 'Salva',
         start_url: '/',
         background_color: config.colors.darkNavy,

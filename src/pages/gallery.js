@@ -165,36 +165,90 @@ const StyledEmptyState = styled.div`
   font-family: var(--font-mono);
 `;
 
-// Sample gallery data - you can replace this with your actual content
-const galleryData = [
-  {
-    id: 1,
-    title: '夏令时珍珠',
-    description: '谨以此文献给一位曾经的友人，愿我们都能坦然拥抱真实的自己',
-    type: '阿弗勒斯的倒影',
-    slug: '/writings/summertime-pearl'
-  },
-  {
-    id: 2,
-    title: '夜的纹理',
-    description: '献给Cyberpunk2077的Judy，来自恶魔结局的Valerie',
-    type: '深林的回响',
-    slug: '/writings/Texture-of-the-night'
-  },
-
-];
-
 const GalleryPage = ({ location }) => {
   const [filter, setFilter] = useState('all');
+  const [writingType, setWritingType] = useState('all');
   
+  // GraphQL query to fetch all writings and paintings
+  const data = useStaticQuery(graphql`
+    query {
+      writings: allMarkdownRemark(
+        filter: { 
+          fileAbsolutePath: { regex: "/content/writings/" }
+          frontmatter: { showInGallery: { ne: false } }
+        }
+        sort: { fields: [frontmatter___date], order: DESC }
+      ) {
+        edges {
+          node {
+            frontmatter {
+              title
+              description
+              type
+              slug
+              date
+            }
+          }
+        }
+      }
+      paintings: allMarkdownRemark(
+        filter: { 
+          fileAbsolutePath: { regex: "/content/paintings/" }
+          frontmatter: { showInGallery: { ne: false } }
+        }
+        sort: { fields: [frontmatter___date], order: DESC }
+      ) {
+        edges {
+          node {
+            frontmatter {
+              title
+              description
+              type
+              image
+              slug
+              date
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  // Transform the data into the format expected by the gallery
+  const writings = data.writings.edges.map(({ node }) => ({
+    id: node.frontmatter.slug,
+    title: node.frontmatter.title,
+    description: node.frontmatter.description,
+    type: node.frontmatter.type,
+    category: 'writing',
+    slug: `/writings/${node.frontmatter.slug}`,
+    date: node.frontmatter.date
+  }));
+
+  const paintings = data.paintings.edges.map(({ node }) => ({
+    id: node.frontmatter.slug,
+    title: node.frontmatter.title,
+    description: node.frontmatter.description,
+    type: node.frontmatter.type,
+    category: 'painting',
+    image: node.frontmatter.image,
+    slug: `/paintings/${node.frontmatter.slug}`,
+    date: node.frontmatter.date
+  }));
+
+  const allItems = [...writings, ...paintings];
+  
+  // Filter logic
   const filteredItems = filter === 'all' 
-    ? galleryData 
-    : galleryData.filter(item => item.type === filter);
+    ? allItems
+    : filter === 'painting' 
+      ? paintings
+      : filter === 'writing' && writingType !== 'all'
+        ? writings.filter(item => item.type === writingType)
+        : writings;
 
   const handleItemClick = (item) => {
-    if (item.file) {
-      window.open(item.file, '_blank');
-    } else if (item.slug) {
+    if (item.slug) {
       window.location.href = item.slug;
     }
   };
@@ -211,34 +265,51 @@ const GalleryPage = ({ location }) => {
           <StyledFilterContainer>
             <StyledFilterButton 
               className={filter === 'all' ? 'active' : ''}
-              onClick={() => setFilter('all')}
+              onClick={() => { setFilter('all'); setWritingType('all'); }}
             >
               All
             </StyledFilterButton>
             <StyledFilterButton 
               className={filter === 'painting' ? 'active' : ''}
-              onClick={() => setFilter('painting')}
+              onClick={() => { setFilter('painting'); setWritingType('all'); }}
             >
               Paintings
             </StyledFilterButton>
             <StyledFilterButton 
-              className={filter === '阿弗勒斯的倒影' ? 'active' : ''}
-              onClick={() => setFilter('阿弗勒斯的倒影')}
+              className={filter === 'writing' ? 'active' : ''}
+              onClick={() => setFilter('writing')}
             >
-              阿弗勒斯的倒影
-            </StyledFilterButton>
-            <StyledFilterButton 
-              className={filter === '深林的回响' ? 'active' : ''}
-              onClick={() => setFilter('深林的回响')}
-            >
-              深林的回响
+              Writings
             </StyledFilterButton>
           </StyledFilterContainer>
+
+          {filter === 'writing' && (
+            <StyledFilterContainer>
+              <StyledFilterButton 
+                className={writingType === 'all' ? 'active' : ''}
+                onClick={() => setWritingType('all')}
+              >
+                All Writings
+              </StyledFilterButton>
+              <StyledFilterButton 
+                className={writingType === '阿弗勒斯的倒影' ? 'active' : ''}
+                onClick={() => setWritingType('阿弗勒斯的倒影')}
+              >
+                阿弗勒斯的倒影
+              </StyledFilterButton>
+              <StyledFilterButton 
+                className={writingType === '深林的回响' ? 'active' : ''}
+                onClick={() => setWritingType('深林的回响')}
+              >
+                深林的回响
+              </StyledFilterButton>
+            </StyledFilterContainer>
+          )}
 
           <StyledGalleryGrid>
             {filteredItems.map(item => (
               <StyledGalleryItem key={item.id} onClick={() => handleItemClick(item)}>
-                {item.type === 'painting' && item.image && (
+                {item.category === 'painting' && item.image && (
                   <StyledItemImage src={item.image} alt={item.title} />
                 )}
                 <StyledItemTitle>{item.title}</StyledItemTitle>
