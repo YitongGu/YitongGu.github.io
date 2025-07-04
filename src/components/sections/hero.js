@@ -65,10 +65,9 @@ const Hero = () => {
   const four = (
     <>
       <p>
-        Relax Darling, almost nothing on the website is about me :D
-        I will finish it by who know when :D
-        Keep expecting dude! I'll be there soon!
-        {' '}
+        I’m a software engineer specializing in building (and occasionally designing) exceptional
+        digital experiences. Currently, I’m focused on building accessible, human-centered products
+        at{' '}
         <a href="https://upstatement.com/" target="_blank" rel="noreferrer">
           Upstatement
         </a>

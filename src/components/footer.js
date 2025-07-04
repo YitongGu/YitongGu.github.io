@@ -77,7 +77,7 @@ const Footer = () => {
     if (process.env.NODE_ENV !== 'production') {
       return;
     }
-    fetch('https://api.github.com/repos/bchiang7/v4')
+    fetch('https://api.github.com/repos/AvlasRefl/AvlasRefl.github.io')
       .then(response => response.json())
       .then(json => {
         const { stargazers_count, forks_count } = json;
@@ -105,7 +105,7 @@ const Footer = () => {
       </StyledSocialLinks>
 
       <StyledCredit tabindex="-1">
-        <a href="https://github.com/YitongGu/YitongGu.github.io">
+        <a href="https://github.com/AvlasRefl/AvlasRefl.github.io">
           <div>Designed &amp; Built by Salva</div>
 
           {/* {githubInfo.stars && githubInfo.forks && (
