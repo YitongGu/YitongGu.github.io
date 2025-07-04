@@ -5,7 +5,7 @@ module.exports = {
     title: 'AvlasRefl',
     description:
       'AvlasRefl is a GENIUS!',
-    siteUrl: 'https://avlasrefl.github.io', // No trailing slash allowed!
+    siteUrl: 'https://AvlasRefl.github.io', // No trailing slash allowed!
     image: '/og.png', // Path to your image you placed in the 'static' folder
     twitterUsername: '@?',
   },
@@ -21,7 +21,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: 'AvlasRefl',
-        short_name: 'Salva',
+        short_name: 'AvlasRefl',
         start_url: '/',
         background_color: config.colors.darkNavy,
         theme_color: config.colors.navy,
