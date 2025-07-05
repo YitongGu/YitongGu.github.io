@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://yitonggu.github.io/sitemap-index.xml
-Host: https://yitonggu.github.io
