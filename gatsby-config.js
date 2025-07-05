@@ -2,12 +2,12 @@ const config = require('./src/config');
 
 module.exports = {
   siteMetadata: {
-    title: 'Yitong Salva Gu',
+    title: 'AvlasRefl',
     description:
-      'Yitong Gu is a GENIUS!',
-    siteUrl: 'https://yitonggu.github.io', // No trailing slash allowed!
+      'AvlasRefl is a GENIUS!',
+    siteUrl: 'https://AvlasRefl.github.io', // No trailing slash allowed!
     image: '/og.png', // Path to your image you placed in the 'static' folder
-    twitterUsername: '@?',
+    twitterUsername: '@',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -20,8 +20,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Yitong Gu',
-        short_name: 'Salva',
+        name: 'AvlasRefl',
+        short_name: 'AvlasRefl',
         start_url: '/',
         background_color: config.colors.darkNavy,
         theme_color: config.colors.navy,

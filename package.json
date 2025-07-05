@@ -2,11 +2,12 @@
   "name": "Salva's personal Website",
   "description": "Personal Website V1",
   "version": "1.0.0",
-  "author": "Yitong Gu <yitongg3@gmail.com",
+  "author": "Yitong Gu <yitongg3@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/YitongGu.github.io"
+    "url": "https://github.com/AvlasRefl/AvlasRefl.github.io"
   },
+  "homepage": "https://avlasrefl.github.io",
   "keywords": [
     "gatsby"
   ],
@@ -73,7 +74,7 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.23.2",
     "gatsby-remark-code-titles": "^1.1.0",
-    "gh-pages": "^6.1.1",
+    "gh-pages": "^6.3.0",
     "husky": "^6.0.0",
     "lint-staged": "^10.1.2",
     "prettier": "^2.2.1"
