@@ -71,12 +71,11 @@ const StyledFilterContainer = styled.div`
   display: flex;
   justify-content: center;
   margin: ${props => props.sub ? '8px 0 30px' : '50px 0 30px'};
-6ba7f80a (almost done)
-  gap: 20px;
+  gap: ${props => props.sub ? '20px' : '30px'};
 
   @media (max-width: 768px) {
     flex-wrap: wrap;
-    gap: 15px;
+    gap: ${props => props.sub ? '15px' : '20px'};
   }
 `;
 
