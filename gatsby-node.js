@@ -11,11 +11,25 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
   const postTemplate = path.resolve(`src/templates/post.js`);
   const tagTemplate = path.resolve('src/templates/tag.js');
+  const writingTemplate = path.resolve('src/templates/writing.js');
 
   const result = await graphql(`
     {
       postsRemark: allMarkdownRemark(
         filter: { fileAbsolutePath: { regex: "/content/posts/" } }
+        sort: { order: DESC, fields: [frontmatter___date] }
+        limit: 1000
+      ) {
+        edges {
+          node {
+            frontmatter {
+              slug
+            }
+          }
+        }
+      }
+      writingsRemark: allMarkdownRemark(
+        filter: { fileAbsolutePath: { regex: "/content/writings/" } }
         sort: { order: DESC, fields: [frontmatter___date] }
         limit: 1000
       ) {
@@ -49,6 +63,19 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       path: node.frontmatter.slug,
       component: postTemplate,
       context: {},
+    });
+  });
+
+  // Create writing detail pages
+  const writings = result.data.writingsRemark.edges;
+
+  writings.forEach(({ node }) => {
+    createPage({
+      path: `/writings/${node.frontmatter.slug}`,
+      component: writingTemplate,
+      context: {
+        slug: node.frontmatter.slug,
+      },
     });
   });
 
