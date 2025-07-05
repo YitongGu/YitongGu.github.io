@@ -135,7 +135,7 @@ const About = () => {
         <StyledText>
           <div>
             <p>
-              Hi! My name is Yitong and I enjoy exploring interesting things in different fields. 
+              Hi! Here is AvlasRefl, and I enjoy exploring interesting things in different fields. 
               I'm current a MS student at UC San Diego, which is a great place that is extremely good for my
               physical and mental health. I've graduated from Zhejiang University and University of Illinois at Urbana-Champagne,
               which was as well a meaningful journey. It has been a long journey on exploring my interest, 
