@@ -2,8 +2,8 @@
 date: '1'
 title: 'Nox the cat'
 cover: './noxie.png'
-external: 'https://github.com/YitongGu/Nox'
-cta: 'https://github.com/YitongGu/Nox'
+external: 'https://github.com/AvlasRefl/Nox'
+cta: 'https://github.com/AvlasRefl/Nox'
 tech:
   - Ollama
   - Docker
