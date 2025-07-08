@@ -22,7 +22,7 @@
     "clean": "gatsby clean",
     "prepare": "husky install",
     "lint-staged": "lint-staged",
-    "deploy": "gh-pages -d public -b main"
+    "deploy": "gatsby build && gh-pages -d public -b main"
   },
   "lint-staged": {
     "*.{js,css,json,md}": [

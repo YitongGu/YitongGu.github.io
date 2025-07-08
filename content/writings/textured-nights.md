@@ -1,5 +1,5 @@
 ---
-date: '2024-01-01'
+date: '2023-10-09'
 title: '夜的纹理'
 type: '林深之处的回响'
 description: '献给夜之城Judy，来自空间站舱门内的Valerie'

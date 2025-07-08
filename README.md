@@ -38,15 +38,10 @@ Yes, you can fork this repo. This repo is also a fork from https://v4.brittanych
 
 ## 🚀 Building and Running for Production
 
-1. Generate a full static production build
+1. Deploy to github.io
 
    ```sh
-   npm run build
+   npm run deploy
    ```
 
-1. Preview the site as it will appear once deployed
-
-   ```sh
-   npm run serve
-   ```
 

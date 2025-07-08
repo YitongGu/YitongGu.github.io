@@ -188,18 +188,26 @@ const galleryData = [
     id: 1,
     title: '夏令时珍珠',
     description: '谨以此文献给一位曾经的友人。愿我们都能坦然拥抱真实的自己。',
-    type: '阿弗勒斯的倒影',
+    type: '湖面的倒影',
     category: 'writings',
     slug: '/writings/summertime-pearl'
   },
-  {
-    id: 2,
-    title: '夜的纹理',
-    description: '献给夜之城Judy，来自空间站舱门内的Valerie',
-    type: '林深之处的回响',
-    category: 'writings',
-    slug: '/writings/textured-nights'
-  },
+    {
+      id: 2,
+      title: '夜的纹理',
+      description: '献给夜之城Judy，来自空间站舱门内的Valerie',
+      type: '深林的回响',
+      category: 'writings',
+      slug: '/writings/textured-nights'
+    },
+    {
+      id: 3,
+      title: '教堂广场的午夜钟声',
+      description: '粉红色塔楼上的四座大钟永远保持着正要敲响的姿势。正如钟声，也许一切都是幻觉。',
+      type: '深林的回响',
+      category: 'writings',
+      slug: '/writings/bells-of-san-miguel'
+    },
 ];
 
 const GalleryPage = ({ location }) => {
@@ -239,7 +247,8 @@ const GalleryPage = ({ location }) => {
         <StyledGallerySection>
           <StyledTitle>Gallery</StyledTitle>
           <StyledSubtitle>
-            <h>A collection of my paintings and writings, exploring creativity across different media and themes.</h>
+            A collection of my paintings and writings, exploring creativity across different media and themes.<br />
+            Click on the buttons below to view my works.
           </StyledSubtitle>
           {filter === null && (
             <StyledFilterContainer>
@@ -253,7 +262,7 @@ const GalleryPage = ({ location }) => {
                 Paintings
               </StyledFilterButton>
               <StyledFilterButton 
-                className={filter === 'writings' || filter === '阿弗勒斯的倒影' || filter === '林深之处的回响' ? 'active' : ''}
+                className={filter === 'writings' || filter === '湖面的倒影' || filter === '深林的回响' ? 'active' : ''}
                 onClick={handleWritingsClick}
               >
                 Writings
@@ -274,38 +283,38 @@ const GalleryPage = ({ location }) => {
                   Paintings
                 </StyledFilterButton>
                 <StyledFilterButton 
-                  className={filter === 'writings' || filter === '阿弗勒斯的倒影' || filter === '林深之处的回响' ? 'active' : ''}
+                  className={filter === 'writings' || filter === '湖面的倒影' || filter === '深林的回响' ? 'active' : ''}
                   onClick={handleWritingsClick}
                 >
                   Writings
                 </StyledFilterButton>
               </StyledFilterContainer>
 
-              {(filter === 'writings' || filter === '阿弗勒斯的倒影' || filter === '林深之处的回响') && (
+              {(filter === 'writings' || filter === '湖面的倒影' || filter === '深林的回响') && (
                 <>
                   <StyledWritingDescription>
                     感谢阅读我的文字，我将他们分为了两类。<br />
-                    <b>阿弗勒斯的倒影</b>：你如何凝望世界，你就如何触碰自己。<br />
-                    <b>林深之处的回响</b>：你如何凝望自己，你就如何触碰世界。
+                    <b>湖面的倒影</b>：你如何凝望世界，你就如何触碰自己。<br />
+                    <b>深林的回响</b>：你如何凝望自己，你就如何触碰世界。
                   </StyledWritingDescription>
                   <StyledFilterContainer sub>
                     <StyledFilterButton
-                      className={`sub${filter === '阿弗勒斯的倒影' ? ' active' : ''}`}
-                      onClick={() => handleSubcategoryClick('阿弗勒斯的倒影')}
+                      className={`sub${filter === '湖面的倒影' ? ' active' : ''}`}
+                      onClick={() => handleSubcategoryClick('湖面的倒影')}
                     >
-                      阿弗勒斯的倒影
+                      湖面的倒影
                     </StyledFilterButton>
                     <StyledFilterButton
-                      className={`sub${filter === '林深之处的回响' ? ' active' : ''}`}
-                      onClick={() => handleSubcategoryClick('林深之处的回响')}
+                      className={`sub${filter === '深林的回响' ? ' active' : ''}`}
+                      onClick={() => handleSubcategoryClick('深林的回响')}
                     >
-                      林深之处的回响
+                      深林的回响
                     </StyledFilterButton>
                   </StyledFilterContainer>
                 </>
               )}
 
-              {(filter === '阿弗勒斯的倒影' || filter === '林深之处的回响' || filter === 'painting') && (
+              {(filter === '湖面的倒影' || filter === '深林的回响' || filter === 'painting') && (
                 <>
                   <StyledGalleryGrid>
                     {filteredItems.map(item => (
