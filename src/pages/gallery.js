@@ -190,35 +190,41 @@ const galleryData = [
     description: '谨以此文献给一位曾经的友人。愿我们都能坦然拥抱真实的自己。',
     type: '湖面的倒影',
     category: 'writings',
-    slug: '/writings/summertime-pearl'
+    slug: '/writings/summertime-pearl',
+    date: '2025-06-28'
   },
-    {
-      id: 2,
-      title: '夜的纹理',
-      description: '献给夜之城Judy，来自空间站舱门内的Valerie',
-      type: '深林的回响',
-      category: 'writings',
-      slug: '/writings/textured-nights'
-    },
-    {
-      id: 3,
-      title: '教堂广场的午夜钟声',
-      description: '粉红色塔楼上的四座大钟永远保持着正要敲响的姿势。正如钟声，也许一切都是幻觉。',
-      type: '深林的回响',
-      category: 'writings',
-      slug: '/writings/bells-of-san-miguel'
-    },
+  {
+    id: 2,
+    title: '夜的纹理',
+    description: '献给夜之城Judy，来自空间站舱门内的Valerie',
+    type: '深林的回响',
+    category: 'writings',
+    slug: '/writings/textured-nights',
+    date: '2023-10-09'
+  },
+  {
+    id: 3,
+    title: '教堂广场的午夜钟声',
+    description: '粉红色塔楼上的四座大钟永远保持着正要敲响的姿势。正如钟声，也许一切都是幻觉。',
+    type: '深林的回响',
+    category: 'writings',
+    slug: '/writings/bells-of-san-miguel',
+    date: '2025-07-08'
+  },
 ];
+
+// Sort gallery data by date (latest first)
+const sortedGalleryData = [...galleryData].sort((a, b) => new Date(b.date) - new Date(a.date));
 
 const GalleryPage = ({ location }) => {
   const [filter, setFilter] = useState(null);
   const [showWritingSubcategories, setShowWritingSubcategories] = useState(false);
   
   const filteredItems = filter === 'writings'
-    ? galleryData.filter(item => item.category === 'writings')
+    ? sortedGalleryData.filter(item => item.category === 'writings')
     : filter
-    ? galleryData.filter(item => item.type === filter)
-    : [];
+    ? sortedGalleryData.filter(item => item.type === filter)
+    : sortedGalleryData;
 
   const handleWritingsClick = () => {
     if (filter === 'writings') {
