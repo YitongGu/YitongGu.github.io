@@ -41,12 +41,14 @@ const StyledWritingDescription = styled.p`
   font-size: var(--fz-lg);
   font-style: italic;
   line-height: 1.6;
-  max-width: 600px;
+  max-width: 100%;
   margin: 0 auto;
+  text-align: center;
 `;
 
 const StyledWritingContent = styled.div`
   margin-bottom: 100px;
+  max-width: 100%;
   
   h1, h2, h3, h4, h5, h6 {
     margin: 2.5em 0 1em;
